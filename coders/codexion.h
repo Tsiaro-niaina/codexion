@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   codexion.h                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rmandimb <rmandimb@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/11/17 09:41:40 by rmandimb          #+#    #+#             */
+/*   Updated: 2026/11/17 09:47:01 by rmandimb         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef CODEXION_H
 # define CODEXION_H
 
@@ -13,7 +25,7 @@
 # define FIFO 0
 # define EDF 1
 
-typedef struct 	s_params
+typedef struct s_params
 {
 	int	number_of_coders;
 	int	time_to_burnout;
@@ -25,20 +37,20 @@ typedef struct 	s_params
 	int	scheduler;
 }				t_params;
 
-typedef struct 	s_node
+typedef struct s_node
 {
 	long	key;
 	int		id;
 }				t_node;
 
-typedef struct 	s_heap
+typedef struct s_heap
 {
 	t_node	*nodes;
 	int		size;
 	int		capacity;
 }				t_heap;
 
-typedef struct 	s_dongle
+typedef struct s_dongle
 {
 	pthread_mutex_t	mutex;
 	pthread_cond_t	cond;
@@ -48,7 +60,7 @@ typedef struct 	s_dongle
 	t_heap			waiting;
 }				t_dongle;
 
-typedef struct 	s_coder
+typedef struct s_coder
 {
 	int				id;
 	pthread_t		thread;
@@ -60,7 +72,7 @@ typedef struct 	s_coder
 	struct s_sim	*sim;
 }				t_coder;
 
-typedef struct	s_sim
+typedef struct s_sim
 {
 	t_params		p;
 	long			start;

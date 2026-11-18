@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   coder.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rmandimb <rmandimb@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/11/17 09:41:29 by rmandimb          #+#    #+#             */
+/*   Updated: 2026/11/18 16:49:06 by rmandimb         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "codexion.h"
 
 static int	take_dongles(t_coder *c)
@@ -54,6 +66,8 @@ void	*coder_routine(void *arg)
 		solo(c);
 		return (NULL);
 	}
+	if (c->id % 2 == 0)
+		usleep(1000);
 	while (!take_dongles(c))
 	{
 		do_compile(c);
